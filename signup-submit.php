@@ -51,6 +51,34 @@ $userInfo = array(
 			$errors[] = "Name cannot be digits";
 			$errors[] = "Go back and fix it yah nerd...";
 		}
+		/* alphabetic letters with the first letter of each world capitalized. */
+		$words = explode(" ", $userInfo["name"]);
+		for ($i = 0; $i < count($words); $i++) {
+			if(strcmp(ucfirst($words[$i]),$words[$i]) !== 0) {
+			
+				$errors[] = "Name must be capitalized";
+				$errors[] = "Go back and fix it yah nerd...";
+				break;
+			}
+		}
+		//validate name
+		if (empty($userInfo["name"])) {
+		
+			$errors[] = "No name was entered. Please enter a name.";
+			$errors[] = "Go back and fix it yah nerd...";
+		}
+		//validate gender
+		if (empty($userInfo["gender"])) {
+		
+			$errors[] = "No gender was entered. Please state what you identify as.";
+			$errors[] = "Go back and fix it yah nerd...";
+		}
+		//validate age
+		if (!is_numeric($userInfo["age"])) {
+		
+			$errors[] = "Age is not a number.";
+			$errors[] = "Go back and fix it yah nerd...";
+		}
 
 <div>
     <h1>Thank you!</h1>
