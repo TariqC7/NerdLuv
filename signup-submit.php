@@ -79,6 +79,30 @@ $userInfo = array(
 			$errors[] = "Age is not a number.";
 			$errors[] = "Go back and fix it yah nerd...";
 		}
+		//validate personality type
+		$personality = array("ESTJ", "ISTJ", "ENTJ", "INTJ",
+			"ESTP", "ISTP", "ENTP", "INTP",
+			"ESFJ", "ISFJ", "ENFJ", "INFJ",
+			"ESFP", "ISFP", "ENFP", "INFP"
+		);
+		if (!in_array($userInfo["type"], $personality)) {
+		
+			$errors[] = "Invalid Personality type";
+			$errors[] = "Go back and fix it yah nerd...";
+		}
+		// validate min/max seeking age.
+		if (!is_numeric($_POST["min"])) {
+		
+			$errors[] = "Min seeking age is not a number.";
+			$errors[] = "Go back and fix it yah nerd...";
+		}
+		if (!is_numeric($_POST["max"])) {
+		
+			$errors[] = "Max seeking age is not a number.";
+			$errors[] = "Go back and fix it yah nerd...";
+		}
+
+		
 
 <div>
     <h1>Thank you!</h1>
