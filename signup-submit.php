@@ -5,7 +5,7 @@ Description:
 Read the data as POST from the query parameters and store it in singles.txt
 
 Features:
-Header logo and text thanking the user
+Header logo, error handling and text thanking the user for their entry if validated
 -->
 
 <?php include("top.html"); ?>
