@@ -9,12 +9,33 @@ Header logo and text thanking the user
 -->
 
 <?php include("top.html"); ?>
+<?php include("extra.php"); ?>
+
+<?php
+/* Set default values for all variables the page needs. */
+$errors = array();
+$userInfo = array(
+    'name' => '',
+    'gender' => '',
+    'age' => '',
+    'type' => '',
+    'OS' => '',
+    'min' => '',
+    'max' => ''
+);
+		/* Confirm that values are present before accessing them. */
+		if(isset($_POST['name'])) {
+			$userInfo['name'] = urlencode($_POST['name']);
+		}
+		if(isset($_POST['gender'])) {
+			$userInfo['gender'] = urlencode($_POST['gender']);
+		}
 
 <div>
     <h1>Thank you!</h1>
     <p>
         Welcome to NerdLuv, <?= $_POST["name"] ?>!<br/><br/>
-        Now <a href="matches.php">log in to see your matches!</a>
+        Now <a href="matches.php">Log in to see your matches!</a>
     </p>
 </div>
 
