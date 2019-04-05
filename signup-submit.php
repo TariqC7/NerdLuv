@@ -101,8 +101,14 @@ $userInfo = array(
 			$errors[] = "Max seeking age is not a number.";
 			$errors[] = "Go back and fix it yah nerd...";
 		}
-
 		
+		/* Write to singles.txt after validation. */
+		if (empty($errors)) {
+			//parse form details into a one line
+			$userInfo_details = $userInfo;
+			$to_write = implode(",", $userInfo_details);
+			file_put_contents("singles.txt", PHP_EOL.$to_write, FILE_APPEND);
+		?>		
 
 <div>
     <h1>Thank you!</h1>
@@ -113,6 +119,25 @@ $userInfo = array(
 </div>
 
 <?php writeToFile(); ?>
+
+<?php
+}
+else {
+?>
+    <div class="errors">
+	OOF!
+        Please fix the following errors:
+        <ul>
+<?php
+    foreach ($errors as $error) {
+?>
+            <li><?= $error ?> </li>
+    <?php } ?>
+        </ul>
+    </div>
+<?php
+}
+?>
 
 <?php include("bottom.html"); ?>
 
