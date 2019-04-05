@@ -30,6 +30,27 @@ $userInfo = array(
 		if(isset($_POST['gender'])) {
 			$userInfo['gender'] = urlencode($_POST['gender']);
 		}
+		if(isset($_POST['age'])) {
+			$userInfo['age'] = urlencode($_POST['age']);
+		}
+		if(isset($_POST['type'])) {
+			$userInfo['type'] = ($_POST['type']);
+		}
+		if(isset($_POST['os'])) {
+			$userInfo['favorite_os'] = ($_POST['os']);
+		}
+		if(isset($_POST['min_seeking_age'])){
+			$userInfo['min_seeking_age'] = ($_POST['min_seeking_age']);
+		}
+		if(isset($_POST['max_seeking_age'])){
+			$userInfo['max_seeking_age'] = ($_POST['max_seeking_age']);
+		}
+		/* check: names cannot be digits */
+		if (preg_match("/[0-9]/", $_POST["name"]) === 1) {
+		
+			$errors[] = "Name cannot be digits";
+			$errors[] = "Go back and fix it yah nerd...";
+		}
 
 <div>
     <h1>Thank you!</h1>
